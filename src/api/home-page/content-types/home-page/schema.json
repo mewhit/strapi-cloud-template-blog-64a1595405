@@ -29,10 +29,10 @@
         "audios"
       ]
     },
-    "progress": {
+    "cmsProgress": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.rich-text"
+      "component": "shared.progress"
     }
   }
 }
