@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_rich_texts",
   "info": {
-    "displayName": "Rich text",
+    "displayName": "rich-text",
     "icon": "align-justify",
     "description": ""
   },
@@ -9,15 +9,6 @@
   "attributes": {
     "body": {
       "type": "richtext"
-    },
-    "cmsName": {
-      "type": "string"
-    },
-    "progressPercentage": {
-      "type": "integer",
-      "default": 0,
-      "max": 100,
-      "min": 1
     }
   }
 }

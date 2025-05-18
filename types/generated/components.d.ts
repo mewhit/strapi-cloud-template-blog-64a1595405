@@ -11,6 +11,25 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedProgress extends Struct.ComponentSchema {
+  collectionName: 'components_shared_progresses';
+  info: {
+    displayName: 'Progress';
+  };
+  attributes: {
+    csmName: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    progressPercentage: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -27,21 +46,11 @@ export interface SharedRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
     description: '';
-    displayName: 'Rich text';
+    displayName: 'rich-text';
     icon: 'align-justify';
   };
   attributes: {
     body: Schema.Attribute.RichText;
-    cmsName: Schema.Attribute.String;
-    progressPercentage: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 100;
-          min: 1;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<0>;
   };
 }
 
@@ -76,6 +85,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.media': SharedMedia;
+      'shared.progress': SharedProgress;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
