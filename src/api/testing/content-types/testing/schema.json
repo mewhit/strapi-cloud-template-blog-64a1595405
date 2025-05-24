@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testings",
+  "info": {
+    "singularName": "testing",
+    "pluralName": "testings",
+    "displayName": "Testing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "textShort": {
+      "type": "string"
+    },
+    "boolean": {
+      "type": "boolean"
+    },
+    "richTextBlocks": {
+      "type": "blocks"
+    },
+    "numberInt": {
+      "type": "integer"
+    },
+    "mediaMultiple": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "mediaSingle": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "textLong": {
+      "type": "text"
+    },
+    "numberBigInt": {
+      "type": "biginteger"
+    },
+    "numberDecimal": {
+      "type": "decimal"
+    },
+    "relationHasOne": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "json": {
+      "type": "json"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    },
+    "enum": {
+      "type": "enumeration",
+      "enum": [
+        "enum1",
+        "enum2",
+        "enum3"
+      ]
+    },
+    "uid": {
+      "type": "uid"
+    }
+  }
+}

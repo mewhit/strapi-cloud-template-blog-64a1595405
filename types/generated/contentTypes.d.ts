@@ -567,6 +567,56 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTestingTesting extends Struct.CollectionTypeSchema {
+  collectionName: 'testings';
+  info: {
+    displayName: 'Testing';
+    pluralName: 'testings';
+    singularName: 'testing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    boolean: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    enum: Schema.Attribute.Enumeration<['enum1', 'enum2', 'enum3']>;
+    json: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testing.testing'
+    > &
+      Schema.Attribute.Private;
+    mediaMultiple: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    mediaSingle: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    numberBigInt: Schema.Attribute.BigInteger;
+    numberDecimal: Schema.Attribute.Decimal;
+    numberInt: Schema.Attribute.Integer;
+    password: Schema.Attribute.Password;
+    publishedAt: Schema.Attribute.DateTime;
+    relationHasOne: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::article.article'
+    >;
+    richTextBlocks: Schema.Attribute.Blocks;
+    textLong: Schema.Attribute.Text;
+    textShort: Schema.Attribute.String;
+    uid: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1082,6 +1132,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::testing.testing': ApiTestingTesting;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
